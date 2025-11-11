@@ -27,3 +27,7 @@ async def generate(job_description: str = Form(...), cv_text: str = Form(...)):
             status_code=500,
             content={"error": "Failed to generate cover letter. Please try again later."}
         )
+    
+@app.get("/health")
+async def health_check():
+    return {"status": "ok"}
